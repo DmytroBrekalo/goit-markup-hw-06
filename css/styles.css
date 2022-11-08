@@ -511,6 +511,8 @@ address{
     width: 100%;
     height: 50px;
     background-color: #2F303A;
+    padding: 15px 16px;
+    color: var(--white-color);
 }
 
 .footer-input::placeholder{
@@ -799,6 +801,7 @@ address{
 .message-area{
     height: 120px;
     resize: none;
+    margin-bottom: 30px;
 }
 
 .form-button{
@@ -818,39 +821,49 @@ address{
    transform: translateY(-50%);      
 }
 
-.check-label{
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
+.check-text{
+    font-weight: 400;
+    line-height: 1.71;
+}
+
+.checkbox{
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
 }
 
 .check-wrap{
-    display: block;
-    border: 2px solid var(--title-text-color);
-    border-radius: 2px;
-    margin-right: 8px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 16px;
     height: 15px;
+    border-radius: 2px;
+    border: 2px solid var(--title-text-color);
+    margin-right: 7px;
+    cursor: pointer;
+    transition: border background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox-label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-bottom: 30px;
 }
 
 .check-icon{
     opacity: 0;
+    
 }
 
-.input-check{
-    position: absolute;
-    height: 0;
-    width: 0;
-    opacity: 0;
-    left: 0;
-    bottom: 0;    
-}    
-
-.input-check:checked + .check-wrap{
-    border: none;
+.checkbox:checked + .checkbox-label .check-wrap{
+    background-color: var(--accent-color);
+    border: var(--accent-color);
 }
 
-.input-check:checked + .check-wrap .check-icon{
+.checkbox:checked+.checkbox-label .check-wrap .check-icon{
     opacity: 1;
 }
